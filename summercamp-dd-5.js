@@ -12,6 +12,7 @@ enterTimelineSummerCamp
 
 // Function to start the entrance animation and handle hover state
 function playEnterAnimationSummerCamp() {
+  console.log("Playing entrance animation");
   // Start the entrance animation
   enterTimelineSummerCamp.play();
   isAnimationReversedSummerCamp = false;
@@ -22,6 +23,8 @@ function playEnterAnimationSummerCamp() {
 
 // Function to execute the reverse of the exit animation and handle hover state
 function reverseExitAnimationSummerCamp() {
+  console.log("Entering reverseExitAnimationSummerCamp");
+
   // Hide the elements on hover out with instant animation
   gsap.set('.hero-navbar_dropdown', { display: 'none' });
   gsap.set('.dropdown_menu-component.is-summer-camp', { display: 'none' });
@@ -31,6 +34,7 @@ function reverseExitAnimationSummerCamp() {
 
   // Remove hover state when the animation is "reversed"
   navLinkSummerCamp.classList.remove('hovered');
+  console.log("Exiting reverseExitAnimationSummerCamp");
 }
 
 // Add the hover event to activate the entrance animation
