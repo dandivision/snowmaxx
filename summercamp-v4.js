@@ -7,8 +7,8 @@ var isAnimationReversedSummerCamp = true; // L'animazione inizia come invertita
 enterTimelineSummerCamp
   .fromTo('.hero-navbar_dropdown', { display: 'none', opacity: 0 }, { display: 'block', opacity: 1, duration: 0.3, ease: 'ease' })
   .fromTo('.dropdown_menu-component.is-summer-camp', { display: 'none', opacity: 0 }, { display: 'block', opacity: 1, duration: 0.3, ease: 'ease' }, '-=0.3')
-  .fromTo('.dropdown_menu-image.is-summer-camp', { scale: 1.3 }, { scale: 1, duration: 0.3, ease: 'ease' }, '-=0.2')
-  .fromTo('.dropdown_menu-text-wrapper.is-summer-camp', { y: '7%', opacity: 0 }, { y: '0%', opacity: 1, duration: 0.3, ease: 'ease' }, '-=0.2');
+  .fromTo('.dropdown_menu-image.is-summer-camp', { display: 'none', scale: 1.3 }, { display: 'inline-block', scale: 1, duration: 0.3, ease: 'ease' }, '-=0.2')
+  .fromTo('.dropdown_menu-text-wrapper.is-summer-camp', { display: 'none', y: '7%', opacity: 0 }, { display: 'flex', y: '0%', opacity: 1, duration: 0.3, ease: 'ease' }, '-=0.2');
 
 // Funzione per avviare l'animazione di entrata e gestire lo stato di hover
 function playEnterAnimationSummerCamp() {
@@ -57,3 +57,4 @@ for (var i = 0; i < heroNavLinksSummerCamp.length; i++) {
 enterTimelineSummerCamp.eventCallback("onComplete", function() {
   isAnimationReversedSummerCamp = true;
 });
+
