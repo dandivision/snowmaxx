@@ -3,12 +3,19 @@ var enterTimelineSummerCamp = gsap.timeline({ paused: true });
 var navLinkSummerCamp = document.getElementById('hero-navlink-summer-camp');
 var isAnimationReversedSummerCamp = true; // Animation starts as reversed
 
+// Capture initial values for the reverseExitAnimationSummerCamp function
+var initialValues = {
+  dropdown: { display: 'none', opacity: 0 },
+  image: { scale: 1.3 },
+  textWrapper: { display: 'none', opacity: 0, y: '7%' }
+};
+
 // Add actions to the entrance animation with easing "ease"
 enterTimelineSummerCamp
   .fromTo('.hero-navbar_dropdown', { display: 'none', opacity: 0 }, { display: 'block', opacity: 1, duration: 0.3, ease: 'ease' })
-  .fromTo('.dropdown_menu-component.is-summer-camp', { display: 'none', opacity: 0 }, { display: 'block', opacity: 1, duration: 0.3, ease: 'ease' }, '-=0.3')
-  .fromTo('.dropdown_menu-image.is-summer-camp', { scale: 1.3 }, { scale: 1, duration: 0.3, ease: 'ease' }, '-=0.2')
-  .fromTo('.dropdown_menu-text-wrapper.is-summer-camp', { y: '7%', opacity: 0 }, { y: '0%', opacity: 1, duration: 0.3, ease: 'ease' }, '-=0.2');
+  .fromTo('.dropdown_menu-component.is-summer-camp', { ...initialValues.dropdown }, { display: 'block', opacity: 1, duration: 0.3, ease: 'ease' }, '-=0.3')
+  .fromTo('.dropdown_menu-image.is-summer-camp', { ...initialValues.image }, { scale: 1, duration: 0.3, ease: 'ease' }, '-=0.2')
+  .fromTo('.dropdown_menu-text-wrapper.is-summer-camp', { ...initialValues.textWrapper }, { display: 'block', opacity: 1, y: '0%', duration: 0.3, ease: 'ease' }, '-=0.2');
 
 // Function to start the entrance animation and handle hover state
 function playEnterAnimationSummerCamp() {
@@ -23,10 +30,12 @@ function playEnterAnimationSummerCamp() {
 // Function to reverse the exit animation and handle hover state
 function reverseExitAnimationSummerCamp() {
   // Hide only the target class .hero-navbar_dropdown instead of reversing the timeline
-  gsap.to('.hero-navbar_dropdown', { display: 'none' });
+  gsap.set('.hero-navbar_dropdown', { display: 'none' });
 
   // Restore the initial values of the target classes
-  gsap.set('.dropdown_menu-component.is-summer-camp, .dropdown_menu-image.is-summer-camp, .dropdown_menu-text-wrapper.is-summer-camp', { display: 'none', opacity: 0, scale: 1.3, y: '7%' });
+  gsap.set('.dropdown_menu-component.is-summer-camp', { ...initialValues.dropdown });
+  gsap.set('.dropdown_menu-image.is-summer-camp', { ...initialValues.image });
+  gsap.set('.dropdown_menu-text-wrapper.is-summer-camp', { ...initialValues.textWrapper });
 
   isAnimationReversedSummerCamp = true;
 
