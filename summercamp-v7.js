@@ -29,7 +29,7 @@ function reverseExitAnimationSummerCamp() {
   dropdownElements.forEach(function(element) {
     var initialDisplay = window.getComputedStyle(element).getPropertyValue('display');
     if (initialDisplay === 'none') {
-      gsap.set(element, { display: 'none' });
+      gsap.to(element, { display: 'none', duration: 0 });
     }
   });
 
