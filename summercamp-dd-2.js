@@ -22,7 +22,7 @@ function playEnterAnimationSummerCamp() {
 
 // Function to execute the reverse of the exit animation and handle hover state
 function reverseExitAnimationSummerCamp() {
-  // Instead of reversing the timeline, hide the elements
+  // Hide the elements on hover out
   document.querySelector('.hero-navbar_dropdown').style.display = 'none';
   document.querySelector('.dropdown_menu-component.is-summer-camp').style.display = 'none';
 
@@ -55,3 +55,10 @@ for (var i = 0; i < heroNavLinksSummerCamp.length; i++) {
     });
   }
 }
+
+// Add onComplete callback to handle the end of the animation
+enterTimelineSummerCamp.eventCallback("onComplete", function() {
+  // Additional logic to execute after the animation ends
+  console.log("Animation completed!");
+  // You can add more logic here if needed
+});
