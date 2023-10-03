@@ -22,12 +22,11 @@ function playEnterAnimationSummerCamp() {
 
 // Function to execute the reverse of the exit animation and handle hover state
 function reverseExitAnimationSummerCamp() {
-  // Hide the elements on hover out with instant animation
-  gsap.set('.hero-navbar_dropdown', { display: 'none', opacity: 0 });
-  gsap.set('.dropdown_menu-component.is-summer-camp', { display: 'none', opacity: 0 });
-
   // Set the animation state to reversed
   isAnimationReversedSummerCamp = true;
+
+  // Hide the elements on hover out
+  gsap.set('.hero-navbar_dropdown, .dropdown_menu-component.is-summer-camp', { display: 'none', opacity: 0 });
 
   // Remove hover state when the animation is "reversed"
   navLinkSummerCamp.classList.remove('hovered');
