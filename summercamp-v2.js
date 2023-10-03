@@ -22,14 +22,12 @@ function playEnterAnimationSummerCamp() {
 
 // Funzione per eseguire il reverse dell'animazione di uscita e gestire lo stato di hover
 function reverseExitAnimationSummerCamp() {
-  enterTimelineSummerCamp.reverse(0.28);
+  // Nascondi tutte le classi target invece di invertire la timeline
+  gsap.set('.hero-navbar_dropdown, .dropdown_menu-component.is-summer-camp, .dropdown_menu-image.is-summer-camp, .dropdown_menu-text-wrapper.is-summer-camp', { display: 'none' });
   isAnimationReversedSummerCamp = true;
 
   // Rimuovi lo stato di hover quando l'animazione è invertita
   navLinkSummerCamp.classList.remove('hovered');
-
-  // Nascondi anche la classe .hero-navbar_dropdown
-  gsap.to('.hero-navbar_dropdown', { display: 'none', duration: 0 });
 }
 
 // Aggiungiamo l'evento mouseenter per attivare l'animazione di entrata
