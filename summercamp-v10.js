@@ -7,7 +7,7 @@ var isAnimationReversedSummerCamp = true; // Animation starts as reversed
 var initialValues = {
   dropdown: { display: 'none', opacity: 0 },
   image: { scale: 1.3 },
-  textWrapper: { display: 'none', opacity: 0, y: '7%' }
+  textWrapper: { opacity: 0, y: '7%' }
 };
 
 // Add actions to the entrance animation with easing "ease"
@@ -15,7 +15,7 @@ enterTimelineSummerCamp
   .fromTo('.hero-navbar_dropdown', { display: 'none', opacity: 0 }, { display: 'block', opacity: 1, duration: 0.3, ease: 'ease' })
   .fromTo('.dropdown_menu-component.is-summer-camp', { ...initialValues.dropdown }, { display: 'block', opacity: 1, duration: 0.3, ease: 'ease' }, '-=0.3')
   .fromTo('.dropdown_menu-image.is-summer-camp', { ...initialValues.image }, { scale: 1, duration: 0.3, ease: 'ease' }, '-=0.2')
-  .fromTo('.dropdown_menu-text-wrapper.is-summer-camp', { ...initialValues.textWrapper }, { display: 'block', opacity: 1, y: '0%', duration: 0.3, ease: 'ease' }, '-=0.2');
+  .fromTo('.dropdown_menu-text-wrapper.is-summer-camp', { ...initialValues.textWrapper }, { opacity: 1, y: '0%', duration: 0.3, ease: 'ease' }, '-=0.2');
 
 // Function to start the entrance animation and handle hover state
 function playEnterAnimationSummerCamp() {
