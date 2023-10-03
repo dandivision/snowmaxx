@@ -50,10 +50,18 @@ document.querySelectorAll('.hero-navbar_link').forEach(function (navLink) {
     // Start the entrance animation
     playEnterAnimationAnimations(navLink);
   });
+
+  // Add mouseleave event to each .hero-navbar_link to restart the exit animation individually
+  navLink.addEventListener('mouseleave', function () {
+    // Reverse the exit animation only if the animation has not been reversed
+    if (!isAnimationReversedAnimations) {
+      reverseExitAnimationAnimations();
+    }
+  });
 });
 
-// Add mouseleave event to .hero-navbar_dropdown to restart the exit animation
-document.querySelector('.hero-navbar_dropdown').addEventListener('mouseleave', reverseExitAnimationAnimations);
+// Add mouseleave event to the closest common ancestor to restart the exit animation
+document.querySelector('.hero-navbar').addEventListener('mouseleave', reverseExitAnimationAnimations);
 
 // Add a callback to replay the animation every time it is completed
 enterTimelineAnimations.eventCallback("onComplete", function () {
