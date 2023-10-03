@@ -1,6 +1,5 @@
 // DROPDOWN menu Animations
 var enterTimelineAnimations = gsap.timeline({ paused: true });
-var navLinks = document.querySelectorAll('.hero-navbar_link');
 var isAnimationReversedAnimations = true; // Animation starts as reversed
 
 // Capture initial values for the reverseExitAnimationAnimations function
@@ -46,7 +45,7 @@ function reverseExitAnimationAnimations() {
 }
 
 // Add mouseenter event to trigger the entrance animation
-navLinks.forEach(function (navLink) {
+document.querySelectorAll('.hero-navbar_link').forEach(function (navLink) {
   navLink.addEventListener('mouseenter', function () {
     // Start the entrance animation
     playEnterAnimationAnimations(navLink);
@@ -56,16 +55,6 @@ navLinks.forEach(function (navLink) {
 // Add mouseleave event to .dropdown_menu-component to restart the exit animation
 document.querySelectorAll('.dropdown_menu-component').forEach(function (dropdownComponent) {
   dropdownComponent.addEventListener('mouseleave', reverseExitAnimationAnimations);
-});
-
-// Add mouseenter event to .hero-navbar_link except those with id hero-navlink-summer-camp
-navLinks.forEach(function (navLink) {
-  navLink.addEventListener('mouseenter', function () {
-    // Reverse the exit animation only if the animation has not been reversed
-    if (!isAnimationReversedAnimations) {
-      reverseExitAnimationAnimations();
-    }
-  });
 });
 
 // Add a callback to replay the animation every time it is completed
