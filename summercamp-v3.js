@@ -12,8 +12,8 @@ enterTimelineSummerCamp
 
 // Funzione per avviare l'animazione di entrata e gestire lo stato di hover
 function playEnterAnimationSummerCamp() {
-  // Avvia l'animazione di entrata
-  enterTimelineSummerCamp.play();
+  // Ripartire l'animazione da zero
+  enterTimelineSummerCamp.restart();
   isAnimationReversedSummerCamp = false;
 
   // Imposta l'id in stato di hover
