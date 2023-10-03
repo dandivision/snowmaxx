@@ -46,8 +46,9 @@ function reverseExitAnimationAnimations() {
 
 // Add mouseenter event to trigger the entrance animation
 document.querySelector('.hero-navbar').addEventListener('mouseenter', function (event) {
-  if (event.target.classList.contains('hero-navbar_link')) {
-    playEnterAnimationAnimations(event.target);
+  var targetNavLink = event.target.closest('.hero-navbar_link');
+  if (targetNavLink) {
+    playEnterAnimationAnimations(targetNavLink);
   }
 });
 
