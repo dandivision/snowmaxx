@@ -45,19 +45,10 @@ function reverseExitAnimationAnimations() {
 }
 
 // Add mouseenter event to trigger the entrance animation
-document.querySelectorAll('.hero-navbar_link').forEach(function (navLink) {
-  navLink.addEventListener('mouseenter', function () {
-    // Start the entrance animation
-    playEnterAnimationAnimations(navLink);
-  });
-
-  // Add mouseleave event to each .hero-navbar_link to restart the exit animation individually
-  navLink.addEventListener('mouseleave', function () {
-    // Reverse the exit animation only if the animation has not been reversed
-    if (!isAnimationReversedAnimations) {
-      reverseExitAnimationAnimations();
-    }
-  });
+document.querySelector('.hero-navbar').addEventListener('mouseenter', function (event) {
+  if (event.target.classList.contains('hero-navbar_link')) {
+    playEnterAnimationAnimations(event.target);
+  }
 });
 
 // Add mouseleave event to the closest common ancestor to restart the exit animation
