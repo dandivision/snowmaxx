@@ -7,8 +7,8 @@ var isAnimationReversedSummerCamp = true; // L'animazione inizia come invertita
 enterTimelineSummerCamp
   .fromTo('.hero-navbar_dropdown', { display: 'none', opacity: 0 }, { display: 'block', opacity: 1, duration: 0.3, ease: 'ease' })
   .fromTo('.dropdown_menu-component.is-summer-camp', { display: 'none', opacity: 0 }, { display: 'block', opacity: 1, duration: 0.3, ease: 'ease' }, '-=0.3')
-  .fromTo('.dropdown_menu-image.is-summer-camp', { display: 'none', scale: 1.3 }, { display: 'inline-block', scale: 1, duration: 0.3, ease: 'ease' }, '-=0.2')
-  .fromTo('.dropdown_menu-text-wrapper.is-summer-camp', { display: 'none', y: '7%', opacity: 0 }, { display: 'flex', y: '0%', opacity: 1, duration: 0.3, ease: 'ease' }, '-=0.2');
+  .fromTo('.dropdown_menu-image.is-summer-camp', { scale: 1.3 }, { scale: 1, duration: 0.3, ease: 'ease' }, '-=0.2')
+  .fromTo('.dropdown_menu-text-wrapper.is-summer-camp', { y: '7%', opacity: 0 }, { y: '0%', opacity: 1, duration: 0.3, ease: 'ease' }, '-=0.2');
 
 // Funzione per avviare l'animazione di entrata e gestire lo stato di hover
 function playEnterAnimationSummerCamp() {
@@ -22,8 +22,17 @@ function playEnterAnimationSummerCamp() {
 
 // Funzione per eseguire il reverse dell'animazione di uscita e gestire lo stato di hover
 function reverseExitAnimationSummerCamp() {
-  // Nascondi tutte le classi target invece di invertire la timeline
-  gsap.set('.hero-navbar_dropdown, .dropdown_menu-component.is-summer-camp, .dropdown_menu-image.is-summer-camp, .dropdown_menu-text-wrapper.is-summer-camp', { display: 'none' });
+  var dropdown = document.querySelector('.hero-navbar_dropdown');
+  var dropdownElements = dropdown.querySelectorAll('.dropdown_menu-component.is-summer-camp, .dropdown_menu-image.is-summer-camp, .dropdown_menu-text-wrapper.is-summer-camp');
+
+  // Check the initial display value and set display: none only for elements that initially had display: none
+  dropdownElements.forEach(function(element) {
+    var initialDisplay = window.getComputedStyle(element).getPropertyValue('display');
+    if (initialDisplay === 'none') {
+      gsap.set(element, { display: 'none' });
+    }
+  });
+
   isAnimationReversedSummerCamp = true;
 
   // Rimuovi lo stato di hover quando l'animazione è invertita
@@ -57,4 +66,3 @@ for (var i = 0; i < heroNavLinksSummerCamp.length; i++) {
 enterTimelineSummerCamp.eventCallback("onComplete", function() {
   isAnimationReversedSummerCamp = true;
 });
-
