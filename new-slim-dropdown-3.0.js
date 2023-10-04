@@ -1,4 +1,4 @@
-// DROPDOWN menu Slim Summer Camp
+// DROPDOWN menu Summer Camp
 var enterTimelineSlimSummerCamp = gsap.timeline({ paused: true });
 var navLinkSlimSummerCamp = document.getElementById('navlink-summer-camp');
 var isAnimationReversedSlimSummerCamp = true;
@@ -9,7 +9,7 @@ enterTimelineSlimSummerCamp
   .fromTo('.dropdown_menu-image.is-slim-summer-camp', { scale: 1.3 }, { scale: 1, duration: 0.2, ease: 'ease' }, '-=0.1')
   .fromTo('.dropdown_menu-text-wrapper.is-slim-summer-camp', { y: '7%', opacity: 0 }, { y: '0%', opacity: 1, duration: 0.2, ease: 'ease' }, '-=0.1');
 
-function playEnterAnimationSlimSummerCamp() {
+function playEnterAnimationSummerCamp() {
   enterTimelineSlimSummerCamp.play();
   isAnimationReversedSlimSummerCamp = false;
   navLinkSlimSummerCamp.classList.add('hovered');
@@ -21,13 +21,13 @@ function reverseExitAnimationSlimSummerCamp() {
   navLinkSlimSummerCamp.classList.remove('hovered');
 }
 
-navLinkSlimSummerCamp.addEventListener('mouseenter', playEnterAnimationSlimSummerCamp);
+navLinkSlimSummerCamp.addEventListener('mouseenter', playEnterAnimationSummerCamp);
 document.querySelector('.dropdown_menu-component.is-slim-summer-camp').addEventListener('mouseleave', reverseExitAnimationSlimSummerCamp);
 
 var heroNavLinksSlimSummerCamp = document.querySelectorAll('.navbar_link');
 for (var i = 0; i < heroNavLinksSlimSummerCamp.length; i++) {
   var link = heroNavLinksSlimSummerCamp[i];
-  if (link.id !== 'navlink-summer-camp') {
+  if (link.id !== 'hero-navlink-summer-camp') {
     link.addEventListener('mouseenter', function() {
       if (!isAnimationReversedSlimSummerCamp) {
         reverseExitAnimationSlimSummerCamp();
@@ -36,7 +36,7 @@ for (var i = 0; i < heroNavLinksSlimSummerCamp.length; i++) {
   }
 }
 
-// DROPDOWN menu Slim Lesson
+// DROPDOWN menu Lesson
 var enterTimelineSlimLesson = gsap.timeline({ paused: true });
 var navLinkSlimLesson = document.getElementById('navlink-lesson');
 var isAnimationReversedSlimLesson = true;
@@ -62,10 +62,10 @@ function reverseExitAnimationSlimLesson() {
 navLinkSlimLesson.addEventListener('mouseenter', playEnterAnimationSlimLesson);
 document.querySelector('.dropdown_menu-component.is-slim-lesson').addEventListener('mouseleave', reverseExitAnimationSlimLesson);
 
-var heroNavLinksSlimLesson = document.querySelectorAll('.navbar_link');
-for (var i = 0; i < heroNavLinksSlimLesson.length; i++) {
-  var link = heroNavLinksSlimLesson[i];
-  if (link.id !== 'navlink-lesson') {
+var heroNavLinksLesson = document.querySelectorAll('.navbar_link');
+for (var i = 0; i < heroNavLinksLesson.length; i++) {
+  var link = heroNavLinksLesson[i];
+  if (link.id !== 'hero-navlink-lesson') {
     link.addEventListener('mouseenter', function() {
       if (!isAnimationReversedSlimLesson) {
         reverseExitAnimationSlimLesson();
@@ -74,9 +74,9 @@ for (var i = 0; i < heroNavLinksSlimLesson.length; i++) {
   }
 }
 
-// DROPDOWN menu Slim Courses
+// DROPDOWN menu Courses
 var enterTimelineSlimCourses = gsap.timeline({ paused: true });
-var navLinkSlimCourses = document.getElementById('navlink-courses');
+var navLinkSlimCourses = document.getElementById('hero-navlink-courses');
 var isAnimationReversedSlimCourses = true;
 
 enterTimelineSlimCourses
@@ -91,37 +91,37 @@ function playEnterAnimationSlimCourses() {
   navLinkSlimCourses.classList.add('hovered');
 }
 
-function reverseExitAnimationSlimCourses() {
+function playEnterAnimationSlimSlimCourses() {
   enterTimelineSlimCourses.reverse(0.09);
   isAnimationReversedSlimCourses = true;
   navLinkSlimCourses.classList.remove('hovered');
 }
 
 navLinkSlimCourses.addEventListener('mouseenter', playEnterAnimationSlimCourses);
-document.querySelector('.dropdown_menu-component.is-slim-courses').addEventListener('mouseleave', reverseExitAnimationSlimCourses);
+document.querySelector('.dropdown_menu-component.is-slim-courses').addEventListener('mouseleave', playEnterAnimationSlimSlimCourses);
 
-var heroNavLinksSlimCourses = document.querySelectorAll('.navbar_link');
-for (var i = 0; i < heroNavLinksSlimCourses.length; i++) {
-  var link = heroNavLinksSlimCourses[i];
-  if (link.id !== 'navlink-courses') {
+var heroNavLinksCourses = document.querySelectorAll('.navbar_link');
+for (var i = 0; i < heroNavLinksCourses.length; i++) {
+  var link = heroNavLinksCourses[i];
+  if (link.id !== 'hero-navlink-courses') {
     link.addEventListener('mouseenter', function() {
       if (!isAnimationReversedSlimCourses) {
-        reverseExitAnimationSlimCourses();
+        playEnterAnimationSlimSlimCourses();
       }
     });
   }
 }
 
-// DROPDOWN menu Slim Academy
+// DROPDOWN menu Academy
 var enterTimelineSlimAcademy = gsap.timeline({ paused: true });
 var navLinkSlimAcademy = document.getElementById('navlink-academy');
 var isAnimationReversedSlimAcademy = true;
 
 enterTimelineSlimAcademy
   .fromTo('.hero-navbar_dropdown', { display: 'none', opacity: 0 }, { display: 'block', opacity: 1, duration: 0.2, ease: 'ease' })
-  .fromTo('.dropdown_menu-component.is-academy', { display: 'none', opacity: 0 }, { display: 'block', opacity: 1, duration: 0.2, ease: 'ease' }, '-=0.2')
-  .fromTo('.dropdown_menu-image.is-academy', { scale: 1.3 }, { scale: 1, duration: 0.2, ease: 'ease' }, '-=0.1')
-  .fromTo('.dropdown_menu-text-wrapper.is-academy', { y: '7%', opacity: 0 }, { y: '0%', opacity: 1, duration: 0.2, ease: 'ease' }, '-=0.1');
+  .fromTo('.dropdown_menu-component.is-slim-academy', { display: 'none', opacity: 0 }, { display: 'block', opacity: 1, duration: 0.2, ease: 'ease' }, '-=0.2')
+  .fromTo('.dropdown_menu-image.is-slim-academy', { scale: 1.3 }, { scale: 1, duration: 0.2, ease: 'ease' }, '-=0.1')
+  .fromTo('.dropdown_menu-text-wrapper.is-slim-academy', { y: '7%', opacity: 0 }, { y: '0%', opacity: 1, duration: 0.2, ease: 'ease' }, '-=0.1');
 
 function playEnterAnimationSlimAcademy() {
   enterTimelineSlimAcademy.play();
@@ -136,12 +136,12 @@ function reverseExitAnimationSlimAcademy() {
 }
 
 navLinkSlimAcademy.addEventListener('mouseenter', playEnterAnimationSlimAcademy);
-document.querySelector('.dropdown_menu-component.is-academy').addEventListener('mouseleave', reverseExitAnimationSlimAcademy);
+document.querySelector('.dropdown_menu-component.is-slim-academy').addEventListener('mouseleave', reverseExitAnimationSlimAcademy);
 
-var heroNavLinksSlimAcademy = document.querySelectorAll('.navbar_link');
-for (var i = 0; i < heroNavLinksSlimAcademy.length; i++) {
-  var link = heroNavLinksSlimAcademy[i];
-  if (link.id !== 'navlink-academy') {
+var heroNavLinksAcademy = document.querySelectorAll('.navbar_link');
+for (var i = 0; i < heroNavLinksAcademy.length; i++) {
+  var link = heroNavLinksAcademy[i];
+  if (link.id !== 'hero-navlink-academy') {
     link.addEventListener('mouseenter', function() {
       if (!isAnimationReversedSlimAcademy) {
         reverseExitAnimationSlimAcademy();
