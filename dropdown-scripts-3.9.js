@@ -45,17 +45,23 @@ document.getElementById('hero-navlink-summer-camp').addEventListener('mouseenter
 document.querySelector('.dropdown_menu-component.is-summer-camp').addEventListener('mouseleave', reverseExitAnimationSummerCamp);
 
 // Add mouseenter and mouseleave events to .hero-navbar_link elements
-var heroNavLinks = document.querySelectorAll('.hero-navbar_link');
-heroNavLinks.forEach(function (link) {
-  link.addEventListener('mouseenter', function () {
+var heroNavLinksSummerCamp = document.querySelectorAll('.hero-navbar_link');
+for (var i = 0; i < heroNavLinksSummerCamp.length; i++) {
+  var link = heroNavLinksSummerCamp[i];
+  if (link.id !== 'hero-navlink-summer-camp') {
+    link.addEventListener('mouseenter', createMouseEnterHandler(link));
+  }
+}
+
+function createMouseEnterHandler(link) {
+  return function() {
+    // Esegui il reverse dell'animazione solo se l'animazione non è stata invertita
     if (!isAnimationReversedSummerCamp) {
       reverseExitAnimationSummerCamp();
     }
-  });
-  link.addEventListener('mouseleave', function () {
-    // If needed, add logic for mouseleave events
-  });
-});
+  };
+}
+
 
 // Add a callback to replay the animation every time it is completed
 enterTimelineSummerCamp.eventCallback("onComplete", function () {
