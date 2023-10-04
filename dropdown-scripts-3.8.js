@@ -1,6 +1,5 @@
 // DROPDOWN menu Summer Camp
 var enterTimelineSummerCamp = gsap.timeline({ paused: true });
-var navLinkSummerCamp = document.getElementById('hero-navlink-summer-camp');
 var isAnimationReversedSummerCamp = true; // Animation starts as reversed
 
 // Capture initial values for the reverseExitAnimationSummerCamp function
@@ -22,9 +21,6 @@ function playEnterAnimationSummerCamp() {
   // Restart the animation from the beginning
   enterTimelineSummerCamp.restart();
   isAnimationReversedSummerCamp = false;
-
-  // Set the id to the hovered state
-  navLinkSummerCamp.classList.add('hovered');
 }
 
 // Function to reverse the exit animation and handle hover state
@@ -38,37 +34,25 @@ function reverseExitAnimationSummerCamp() {
   gsap.set('.dropdown_menu-text-wrapper.is-summer-camp', { ...initialValues.textWrapper });
 
   isAnimationReversedSummerCamp = true;
-
-  // Remove the hover state when the animation is reversed
-  navLinkSummerCamp.classList.remove('hovered');
 }
 
 // Add mouseenter event to trigger the entrance animation
-navLinkSummerCamp.addEventListener('mouseenter', function() {
-  // Start the entrance animation
+document.getElementById('hero-navlink-summer-camp').addEventListener('mouseenter', function () {
   playEnterAnimationSummerCamp();
 });
 
 // Add mouseleave event to .dropdown_menu-component.is-summer-camp to restart the exit animation
 document.querySelector('.dropdown_menu-component.is-summer-camp').addEventListener('mouseleave', reverseExitAnimationSummerCamp);
 
-// Add mouseenter event to .hero-navbar_link except those with id hero-navlink-summer-camp
-var heroNavLinksSummerCamp = document.querySelectorAll('.hero-navbar_link');
-for (var i = 0; i < heroNavLinksSummerCamp.length; i++) {
-  var link = heroNavLinksSummerCamp[i];
-  if (link.id !== 'hero-navlink-summer-camp') {
-    console.log('Adding event listener to', link.id);
-    link.addEventListener('mouseenter', function() {
-      console.log('Mouse entered:', link.id);
-      // Reverse the exit animation only if the animation has not been reversed
-      if (!isAnimationReversedSummerCamp) {
-        reverseExitAnimationSummerCamp();
-      }
-    });
+// Add event delegation for .hero-navbar_link elements except the one with ID hero-navlink-summer-camp
+document.addEventListener('mouseenter', function (event) {
+  var targetLink = event.target.closest('.hero-navbar_link');
+  if (targetLink && targetLink.id !== 'hero-navlink-summer-camp' && !isAnimationReversedSummerCamp) {
+    reverseExitAnimationSummerCamp();
   }
-}
+});
 
 // Add a callback to replay the animation every time it is completed
-enterTimelineSummerCamp.eventCallback("onComplete", function() {
+enterTimelineSummerCamp.eventCallback("onComplete", function () {
   isAnimationReversedSummerCamp = true;
 });
