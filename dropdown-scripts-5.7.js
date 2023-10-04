@@ -54,15 +54,12 @@ navLinkSummerCamp.addEventListener('mouseenter', function () {
   playEnterAnimationSummerCamp();
 });
 
-// Add mouseleave event to .dropdown_menu-component.is-summer-camp to restart the exit animation
-document.querySelector('.dropdown_menu-component.is-summer-camp').addEventListener('mouseleave', reverseExitAnimationSummerCamp);
+// Add mouseleave event to .dropdown_menu-component.is-summer-camp to set display to 'none'
+document.querySelector('.dropdown_menu-component.is-summer-camp').addEventListener('mouseleave', function () {
+  gsap.set('.hero-navbar_dropdown', { display: 'none' });
+});
 
 // Add a callback to replay the animation every time it is completed
 enterTimelineSummerCamp.eventCallback("onComplete", function () {
   isAnimationReversedSummerCamp = true;
-});
-
-// Add a callback to set display to 'none' when the reverse animation is complete
-enterTimelineSummerCamp.eventCallback("onReverseComplete", function () {
-  gsap.set('.hero-navbar_dropdown', { display: 'none' });
 });
