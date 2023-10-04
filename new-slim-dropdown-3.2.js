@@ -27,7 +27,7 @@ document.querySelector('.dropdown_menu-component.is-slim-summer-camp').addEventL
 var heroNavLinksSlimSummerCamp = document.querySelectorAll('.navbar_link');
 for (var i = 0; i < heroNavLinksSlimSummerCamp.length; i++) {
   var link = heroNavLinksSlimSummerCamp[i];
-  if (link.id !== 'hero-navlink-summer-camp') {
+  if (link.id !== 'navlink-summer-camp') {
     link.addEventListener('mouseenter', function() {
       if (!isAnimationReversedSlimSummerCamp) {
         reverseExitAnimationSlimSummerCamp();
@@ -62,10 +62,10 @@ function reverseExitAnimationSlimLesson() {
 navLinkSlimLesson.addEventListener('mouseenter', playEnterAnimationSlimLesson);
 document.querySelector('.dropdown_menu-component.is-slim-lesson').addEventListener('mouseleave', reverseExitAnimationSlimLesson);
 
-var heroNavLinksLesson = document.querySelectorAll('.navbar_link');
-for (var i = 0; i < heroNavLinksLesson.length; i++) {
-  var link = heroNavLinksLesson[i];
-  if (link.id !== 'hero-navlink-lesson') {
+var heroNavLinksSlimLesson = document.querySelectorAll('.navbar_link');
+for (var i = 0; i < heroNavLinksSlimLesson.length; i++) {
+  var link = heroNavLinksSlimLesson[i];
+  if (link.id !== 'navlink-lesson') {
     link.addEventListener('mouseenter', function() {
       if (!isAnimationReversedSlimLesson) {
         reverseExitAnimationSlimLesson();
@@ -76,7 +76,7 @@ for (var i = 0; i < heroNavLinksLesson.length; i++) {
 
 // DROPDOWN menu Courses
 var enterTimelineSlimCourses = gsap.timeline({ paused: true });
-var navLinkSlimCourses = document.getElementById('hero-navlink-courses');
+var navLinkSlimCourses = document.getElementById('navlink-courses');
 var isAnimationReversedSlimCourses = true;
 
 enterTimelineSlimCourses
@@ -100,10 +100,10 @@ function playEnterAnimationSlimSlimCourses() {
 navLinkSlimCourses.addEventListener('mouseenter', playEnterAnimationSlimCourses);
 document.querySelector('.dropdown_menu-component.is-slim-courses').addEventListener('mouseleave', playEnterAnimationSlimSlimCourses);
 
-var heroNavLinksCourses = document.querySelectorAll('.navbar_link');
-for (var i = 0; i < heroNavLinksCourses.length; i++) {
-  var link = heroNavLinksCourses[i];
-  if (link.id !== 'hero-navlink-courses') {
+var heroNavLinksSlimCourses = document.querySelectorAll('.navbar_link');
+for (var i = 0; i < heroNavLinksSlimCourses.length; i++) {
+  var link = heroNavLinksSlimCourses[i];
+  if (link.id !== 'navlink-courses') {
     link.addEventListener('mouseenter', function() {
       if (!isAnimationReversedSlimCourses) {
         playEnterAnimationSlimSlimCourses();
@@ -138,10 +138,10 @@ function reverseExitAnimationSlimAcademy() {
 navLinkSlimAcademy.addEventListener('mouseenter', playEnterAnimationSlimAcademy);
 document.querySelector('.dropdown_menu-component.is-slim-academy').addEventListener('mouseleave', reverseExitAnimationSlimAcademy);
 
-var heroNavLinksAcademy = document.querySelectorAll('.navbar_link');
-for (var i = 0; i < heroNavLinksAcademy.length; i++) {
-  var link = heroNavLinksAcademy[i];
-  if (link.id !== 'hero-navlink-academy') {
+var heroNavLinksSlimAcademy = document.querySelectorAll('.navbar_link');
+for (var i = 0; i < heroNavLinksSlimAcademy.length; i++) {
+  var link = heroNavLinksSlimAcademy[i];
+  if (link.id !== 'navlink-academy') {
     link.addEventListener('mouseenter', function() {
       if (!isAnimationReversedSlimAcademy) {
         reverseExitAnimationSlimAcademy();
