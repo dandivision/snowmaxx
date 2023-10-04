@@ -29,15 +29,9 @@ function playEnterAnimationSummerCamp() {
 
 // Function to reverse the exit animation and handle hover state
 function reverseExitAnimationSummerCamp() {
-  // Check if the timeline is currently playing
-  if (enterTimelineSummerCamp.isActive()) {
-    // Reverse the timeline to play the exit animation
-    enterTimelineSummerCamp.reverse();
-  } else {
-    // Hide only the target class .hero-navbar_dropdown if the timeline is not active
-    gsap.set('.hero-navbar_dropdown', { display: 'none' });
-  }
-
+  // Reverse the timeline to play the exit animation
+  enterTimelineSummerCamp.reverse();
+  
   isAnimationReversedSummerCamp = true;
 
   // Remove the hover state when the animation is reversed
@@ -46,10 +40,8 @@ function reverseExitAnimationSummerCamp() {
 
 // Function to handle mouseenter event for .hero-navbar_link elements (except the one with id 'hero-navlink-summer-camp')
 function handleNavbarLinkMouseEnter() {
-  // Reverse the exit animation only if the animation has not been reversed
-  if (!isAnimationReversedSummerCamp) {
-    reverseExitAnimationSummerCamp();
-  }
+  // Reverse the exit animation
+  reverseExitAnimationSummerCamp();
 }
 
 // Add mouseenter event to .hero-navbar_link except those with id hero-navlink-summer-camp
