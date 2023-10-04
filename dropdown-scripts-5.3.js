@@ -29,13 +29,14 @@ function playEnterAnimationSummerCamp() {
 
 // Function to reverse the exit animation and handle hover state
 function reverseExitAnimationSummerCamp() {
-  // Hide only the target class .hero-navbar_dropdown instead of reversing the timeline
-  gsap.set('.hero-navbar_dropdown', { display: 'none' });
-
-  // Restore the initial values of the target classes
-  gsap.set('.dropdown_menu-component.is-summer-camp', { ...initialValues.dropdown });
-  gsap.set('.dropdown_menu-image.is-summer-camp', { ...initialValues.image });
-  gsap.set('.dropdown_menu-text-wrapper.is-summer-camp', { ...initialValues.textWrapper });
+  // Check if the timeline is currently playing
+  if (enterTimelineSummerCamp.isActive()) {
+    // Reverse the timeline to play the exit animation
+    enterTimelineSummerCamp.reverse();
+  } else {
+    // Hide only the target class .hero-navbar_dropdown if the timeline is not active
+    gsap.set('.hero-navbar_dropdown', { display: 'none' });
+  }
 
   isAnimationReversedSummerCamp = true;
 
