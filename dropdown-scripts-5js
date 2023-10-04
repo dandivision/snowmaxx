@@ -1,4 +1,4 @@
-// DROPDOWN menu Summer Camp
+// DROPDOWN menu Summer Camp 
 var enterTimelineSummerCamp = gsap.timeline({ paused: true });
 var navLinkSummerCamp = document.getElementById('hero-navlink-summer-camp');
 var isAnimationReversedSummerCamp = true; // Animation starts as reversed
