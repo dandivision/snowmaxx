@@ -30,7 +30,7 @@ function reverseExitAnimationSummerCamp() {
 }
 
 // Aggiungiamo l'evento click per attivare l'animazione di entrata
-navLinkSummerCamp.addEventListener('click', function() {
+navLinkSummerCamp.addEventListener('mouseenter', function() {
   // Avvia l'animazione di entrata
   playEnterAnimationSummerCamp();
 });
@@ -84,7 +84,7 @@ function reverseExitAnimationLesson() {
 }
 
 // Aggiungiamo l'evento click per attivare l'animazione di entrata
-navLinkLesson.addEventListener('click', function() {
+navLinkLesson.addEventListener('mouseenter', function() {
   // Avvia l'animazione di entrata
   playEnterAnimationLesson();
 });
@@ -138,7 +138,7 @@ function reverseExitAnimationCourses() {
 }
 
 // Aggiungiamo l'evento click per attivare l'animazione di entrata
-navLinkCourses.addEventListener('click', function() {
+navLinkCourses.addEventListener('mouseenter', function() {
   // Avvia l'animazione di entrata
   playEnterAnimationCourses();
 });
@@ -192,7 +192,7 @@ function reverseExitAnimationAcademy() {
 }
 
 // Aggiungiamo l'evento click per attivare l'animazione di entrata
-navLinkAcademy.addEventListener('click', function() {
+navLinkAcademy.addEventListener('mouseenter', function() {
   // Avvia l'animazione di entrata
   playEnterAnimationAcademy();
 });
