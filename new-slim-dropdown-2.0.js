@@ -36,7 +36,7 @@ for (var i = 0; i < heroNavLinksSlimSummerCamp.length; i++) {
   }
 }
 
-// DROPDOWN menu SlimLesson
+// DROPDOWN menu Slim Lesson
 var enterTimelineSlimLesson = gsap.timeline({ paused: true });
 var navLinkSlimLesson = document.getElementById('navlink-lesson');
 var isAnimationReversedSlimLesson = true;
@@ -60,7 +60,7 @@ function reverseExitAnimationSlimLesson() {
 }
 
 navLinkSlimLesson.addEventListener('mouseenter', playEnterAnimationSlimLesson);
-document.querySelector('.dropdown_menu-component.is-SlimLesson').addEventListener('mouseleave', reverseExitAnimationSlimLesson);
+document.querySelector('.dropdown_menu-component.is-slim-lesson').addEventListener('mouseleave', reverseExitAnimationSlimLesson);
 
 var heroNavLinksSlimLesson = document.querySelectorAll('.navbar_link');
 for (var i = 0; i < heroNavLinksSlimLesson.length; i++) {
@@ -74,7 +74,7 @@ for (var i = 0; i < heroNavLinksSlimLesson.length; i++) {
   }
 }
 
-// DROPDOWN menu Slim SlimCourses
+// DROPDOWN menu Slim Courses
 var enterTimelineSlimCourses = gsap.timeline({ paused: true });
 var navLinkSlimCourses = document.getElementById('navlink-courses');
 var isAnimationReversedSlimCourses = true;
@@ -103,7 +103,7 @@ document.querySelector('.dropdown_menu-component.is-slim-courses').addEventListe
 var heroNavLinksSlimCourses = document.querySelectorAll('.navbar_link');
 for (var i = 0; i < heroNavLinksSlimCourses.length; i++) {
   var link = heroNavLinksSlimCourses[i];
-  if (link.id !== 'hero-navlink-SlimCourses') {
+  if (link.id !== 'navlink-courses') {
     link.addEventListener('mouseenter', function() {
       if (!isAnimationReversedSlimCourses) {
         reverseExitAnimationSlimCourses();
@@ -112,7 +112,7 @@ for (var i = 0; i < heroNavLinksSlimCourses.length; i++) {
   }
 }
 
-// DROPDOWN menu Slim SlimAcademy
+// DROPDOWN menu Slim Academy
 var enterTimelineSlimAcademy = gsap.timeline({ paused: true });
 var navLinkSlimAcademy = document.getElementById('navlink-academy');
 var isAnimationReversedSlimAcademy = true;
@@ -141,7 +141,7 @@ document.querySelector('.dropdown_menu-component.is-academy').addEventListener('
 var heroNavLinksSlimAcademy = document.querySelectorAll('.navbar_link');
 for (var i = 0; i < heroNavLinksSlimAcademy.length; i++) {
   var link = heroNavLinksSlimAcademy[i];
-  if (link.id !== 'hero-navlink-SlimAcademy') {
+  if (link.id !== 'navlink-academy') {
     link.addEventListener('mouseenter', function() {
       if (!isAnimationReversedSlimAcademy) {
         reverseExitAnimationSlimAcademy();
