@@ -44,12 +44,17 @@ document.getElementById('hero-navlink-summer-camp').addEventListener('mouseenter
 // Add mouseleave event to .dropdown_menu-component.is-summer-camp to restart the exit animation
 document.querySelector('.dropdown_menu-component.is-summer-camp').addEventListener('mouseleave', reverseExitAnimationSummerCamp);
 
-// Add event delegation for .hero-navbar_link elements except the one with ID hero-navlink-summer-camp
-document.addEventListener('mouseenter', function (event) {
-  var targetLink = event.target.closest('.hero-navbar_link');
-  if (targetLink && targetLink.id !== 'hero-navlink-summer-camp' && !isAnimationReversedSummerCamp) {
-    reverseExitAnimationSummerCamp();
-  }
+// Add mouseenter and mouseleave events to .hero-navbar_link elements
+var heroNavLinks = document.querySelectorAll('.hero-navbar_link');
+heroNavLinks.forEach(function (link) {
+  link.addEventListener('mouseenter', function () {
+    if (!isAnimationReversedSummerCamp) {
+      reverseExitAnimationSummerCamp();
+    }
+  });
+  link.addEventListener('mouseleave', function () {
+    // If needed, add logic for mouseleave events
+  });
 });
 
 // Add a callback to replay the animation every time it is completed
