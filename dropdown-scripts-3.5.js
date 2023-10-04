@@ -38,7 +38,7 @@ var heroNavLinksSummerCamp = document.querySelectorAll('.hero-navbar_link');
 for (var i = 0; i < heroNavLinksSummerCamp.length; i++) {
   var link = heroNavLinksSummerCamp[i];
   link.addEventListener('mouseenter', function() {
-    if (!isAnimationReversedSummerCamp) {
+    if (!isAnimationReversedSummerCamp && this !== navLinkSummerCamp) {
       reverseExitAnimationSummerCamp();
     }
   });
