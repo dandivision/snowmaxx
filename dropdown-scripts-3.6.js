@@ -37,11 +37,16 @@ navLinkSummerCamp.addEventListener('mouseenter', function() {
 var heroNavLinksSummerCamp = document.querySelectorAll('.hero-navbar_link');
 for (var i = 0; i < heroNavLinksSummerCamp.length; i++) {
   var link = heroNavLinksSummerCamp[i];
-  link.addEventListener('mouseenter', function() {
-    if (!isAnimationReversedSummerCamp && this !== navLinkSummerCamp) {
-      reverseExitAnimationSummerCamp();
-    }
-  });
+  if (link.id !== 'hero-navlink-summer-camp') {
+    console.log('Adding event listener to', link.id);
+    link.addEventListener('mouseenter', function() {
+      console.log('Mouse entered:', link.id);
+      // Reverse the exit animation only if the animation has not been reversed
+      if (!isAnimationReversedSummerCamp) {
+        reverseExitAnimationSummerCamp();
+      }
+    });
+  }
 }
 
 // Add a callback to replay the animation every time it is completed
