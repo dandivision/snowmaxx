@@ -57,13 +57,17 @@ var heroNavLinksSummerCamp = document.querySelectorAll('.hero-navbar_link');
 for (var i = 0; i < heroNavLinksSummerCamp.length; i++) {
   var link = heroNavLinksSummerCamp[i];
   if (link.id !== 'hero-navlink-summer-camp') {
-    link.addEventListener('mouseenter', function() {
-      // Reverse the exit animation only if the animation has not been reversed
-      if (!isAnimationReversedSummerCamp) {
-        reverseExitAnimationSummerCamp();
-      }
-    });
+    link.addEventListener('mouseenter', createMouseEnterHandler(link));
   }
+}
+
+function createMouseEnterHandler(link) {
+  return function () {
+    // Reverse the exit animation only if the animation has not been reversed
+    if (!isAnimationReversedSummerCamp) {
+      reverseExitAnimationSummerCamp();
+    }
+  };
 }
 
 // Add a callback to replay the animation every time it is completed
