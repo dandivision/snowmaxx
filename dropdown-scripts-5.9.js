@@ -19,6 +19,9 @@ enterTimelineSummerCamp
 
 // Function to start the entrance animation and handle hover state
 function playEnterAnimationSummerCamp() {
+  // Clear any previously set properties to avoid flash
+  gsap.set('.hero-navbar_dropdown', { clearProps: 'all' });
+
   // Restart the animation from the beginning
   enterTimelineSummerCamp.restart();
   isAnimationReversedSummerCamp = false;
@@ -37,8 +40,11 @@ function reverseExitAnimationSummerCamp() {
 function handleNavbarLinkMouseEnter() {
   // Reverse the exit animation
   reverseExitAnimationSummerCamp();
-  // Set display to 'none'
-  gsap.set('.hero-navbar_dropdown', { display: 'none' });
+
+  // Set display to 'none' after a slight delay
+  gsap.delayedCall(0.1, function () {
+    gsap.set('.hero-navbar_dropdown', { display: 'none' });
+  });
 }
 
 // Add mouseenter event to .hero-navbar_link except those with id hero-navlink-summer-camp
@@ -58,10 +64,18 @@ navLinkSummerCamp.addEventListener('mouseenter', function () {
 
 // Add mouseleave event to .dropdown_menu-component.is-summer-camp to set display to 'none'
 document.querySelector('.dropdown_menu-component.is-summer-camp').addEventListener('mouseleave', function () {
-  gsap.set('.hero-navbar_dropdown', { display: 'none' });
+  // Set display to 'none' after a slight delay
+  gsap.delayedCall(0.1, function () {
+    gsap.set('.hero-navbar_dropdown', { display: 'none' });
+  });
 });
 
 // Add a callback to replay the animation every time it is completed
 enterTimelineSummerCamp.eventCallback("onComplete", function () {
   isAnimationReversedSummerCamp = true;
+});
+
+// Add a callback to clear properties when the reverse animation is complete
+enterTimelineSummerCamp.eventCallback("onReverseComplete", function () {
+  gsap.set('.hero-navbar_dropdown', { clearProps: 'all' });
 });
