@@ -37,6 +37,8 @@ function reverseExitAnimationSummerCamp() {
 function handleNavbarLinkMouseEnter() {
   // Reverse the exit animation
   reverseExitAnimationSummerCamp();
+  // Set display to 'none'
+  gsap.set('.hero-navbar_dropdown', { display: 'none' });
 }
 
 // Add mouseenter event to .hero-navbar_link except those with id hero-navlink-summer-camp
