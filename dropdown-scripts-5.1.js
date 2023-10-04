@@ -1,4 +1,4 @@
-// DROPDOWN menu Summer Camp 
+// DROPDOWN menu Summer Camp
 var enterTimelineSummerCamp = gsap.timeline({ paused: true });
 var navLinkSummerCamp = document.getElementById('hero-navlink-summer-camp');
 var isAnimationReversedSummerCamp = true; // Animation starts as reversed
@@ -43,20 +43,21 @@ function reverseExitAnimationSummerCamp() {
   navLinkSummerCamp.classList.remove('hovered');
 }
 
-// Function to handle mouseenter event for .hero-navbar_link elements (except the one with id 'hero-navlink-summer-camp')
-function handleNavbarLinkMouseEnter() {
-  // Reverse the exit animation only if the animation has not been reversed
-  if (!isAnimationReversedSummerCamp) {
-    reverseExitAnimationSummerCamp();
-  }
-}
-
 // Add mouseenter event to .hero-navbar_link except those with id hero-navlink-summer-camp
 var heroNavLinksSummerCamp = document.querySelectorAll('.hero-navbar_link');
 for (var i = 0; i < heroNavLinksSummerCamp.length; i++) {
   var link = heroNavLinksSummerCamp[i];
   if (link.id !== 'hero-navlink-summer-camp') {
-    link.addEventListener('mouseenter', handleNavbarLinkMouseEnter);
+    link.addEventListener('mouseenter', function () {
+      // Start the entrance animation
+      playEnterAnimationSummerCamp();
+    });
+    link.addEventListener('mouseleave', function () {
+      // Reverse the exit animation only if the animation has not been reversed
+      if (!isAnimationReversedSummerCamp) {
+        reverseExitAnimationSummerCamp();
+      }
+    });
   }
 }
 
